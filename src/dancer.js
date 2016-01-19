@@ -15,7 +15,7 @@ Dancer.prototype.step = function() {
 };
 
 Dancer.prototype.setPosition = function(top, left) {
-  
+
   var styleSettings = {
     top: this.top,
     left: this.left
@@ -31,3 +31,21 @@ Dancer.prototype.randomRGB = function () {
 
   return results;
 };
+
+var width = $('body').width();
+var height = $('body').height();
+
+var angle = 0;
+var increment = 0.1;
+
+function loop() {
+  var angle = 2 * Math.PI * Math.random();
+  var x = width/2 + width/4  * Math.cos(angle);
+  var y = height/2 + width/4 * Math.sin(angle);
+  console.log(x, y);
+  angle += 0.1;
+  //radius += increment;
+  //if (radius > 200) increment = -0.1;
+  //if (radius < 50) increment = 0.1;
+  setTimeout(loop, 1000);
+}

@@ -36,5 +36,15 @@ $(document).ready(function() {
     }
   });
 
+  $('body').on('mouseenter', '.dancer', function(event){
+    var $top = $(this).position().top;
+    $(this).css('top', $top - 50);
+  });
+
+  $('body').on('mouseleave', '.dancer', function(event){
+    var $top = $(this).position().top;
+    $(this).css('top', $top + 50);
+  });
+
 });
 
