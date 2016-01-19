@@ -1,5 +1,6 @@
 var Dancer = class {
   constructor(top, left, timeBetweenSteps) {
+
     this.$node = $('<span class="dancer"></span>');
     this.left = left;
     this.top = top;
@@ -8,7 +9,7 @@ var Dancer = class {
     this.setPosition(top, left);
     this.color = this.randomRGB();
 
-    this.guid = Dancer.guid++;
+    this.guid = window._danceGUID++;
     this.$node.data('guid', this.guid);
     this.$node.css('backgroundColor', 'rgb('+ this.color[0] + ',' + this.color[1] + ',' + this.color[2] + ')'); 
 
@@ -35,36 +36,31 @@ var Dancer = class {
 
     return results;
   }
+  popUp() {
+    this.setPosition(this.top - 50, this.left);
+  }
+  pushDown() {
+    this.setPosition(this.top + 50, this.left);
+  }
+  circleDance(x, y, radius) {
+    var angle = 2 * Math.PI * Math.random();
+    var increment = 0.1;
+    var self = this;
+
+    var loop = function () {
+      var left = x + radius * Math.cos(angle);
+      var top = y + radius * Math.sin(angle);
+      self.setPosition(top,left);
+      angle += 0.1;
+      //radius += increment;
+      //if (radius > 200) increment = -0.1;
+      //if (radius < 50) increment = 0.1;
+      self._timeoutRef = setTimeout(loop, 200);
+    };
+
+    loop();
+  }
+  stopCustomDance() {
+    clearTimeout(this._timeoutRef);
+  }
 };
-
-// Dancer.prototype.popUp = function() {
-//   this.setPosition(this.top - 50, this.left);
-// };
-
-
-// Dancer.prototype.pushDown = function() {
-//   this.setPosition(this.top + 50, this.left);
-// };
-
-// Dancer.prototype.circleDance = function (x,y,radius) {
-//   var angle = 2 * Math.PI * Math.random();
-//   var increment = 0.1;
-//   var self = this;
-
-//   var loop = function () {
-//     var left = x + radius * Math.cos(angle);
-//     var top = y + radius * Math.sin(angle);
-//     self.setPosition(top,left);
-//     angle += 0.1;
-//     //radius += increment;
-//     //if (radius > 200) increment = -0.1;
-//     //if (radius < 50) increment = 0.1;
-//     self._timeoutRef = setTimeout(loop, 200);
-//   };
-
-//   loop();
-// };
-
-// Dancer.prototype.stopCustomDance = function() {
-//   clearTimeout(this._timeoutRef);
-// };

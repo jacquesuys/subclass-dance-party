@@ -1,4 +1,6 @@
 $(document).ready(function() {
+
+  window._danceGUID = window._danceGUID || 0;
   
   var $bodyWidth = $("body").width();
   var $bodyHeight = $("body").height();
