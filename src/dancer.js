@@ -15,6 +15,7 @@ Dancer.prototype.step = function() {
 };
 
 Dancer.prototype.setPosition = function(top, left) {
+  
   var styleSettings = {
     top: this.top,
     left: this.left

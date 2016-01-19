@@ -27,5 +27,6 @@ body, a:link, a:visited, a:active{
   background: red;
   position:absolute;
   border-radius: 10px;
+  transition: all 0.25s;
 }
 
