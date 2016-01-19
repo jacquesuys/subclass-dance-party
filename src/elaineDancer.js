@@ -12,4 +12,11 @@ var ElaineDancer = class extends Dancer {
       height: '155px'
     });  
   }
+    step () {
+    super.step();
+    var randomNum = new Date().getTime() % 10; 
+    if(randomNum===1){
+      this.$node.toggleClass('flipImage');
+    }
+  }
 };

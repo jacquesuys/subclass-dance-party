@@ -16,7 +16,7 @@ $(document).ready(function() {
     var $dancer = new $dancerMakerFunction(
       $("body").height() * Math.random(),
       $bodyWidth * Math.random(),
-      Math.random() * 1000
+      Math.random()*1000
     );
 
     danceFloor.addDancer($dancer);
