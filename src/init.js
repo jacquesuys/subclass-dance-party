@@ -10,6 +10,7 @@ $(document).ready(function() {
       $("body").width() * Math.random(),
       Math.random() * 1000
     );
+    dancer.$node.css('backgroundColor', 'rgb('+ dancer.color[0] + ',' + dancer.color[1] + ',' + dancer.color[2] + ')'); 
     $('body').append(dancer.$node);
   });
 });
