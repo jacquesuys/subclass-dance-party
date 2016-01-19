@@ -1,8 +1,9 @@
 $(document).ready(function() {
-  window.dancers = [];
-  var $remember;
-
+  
   var $bodyWidth = $("body").width();
+  var $bodyHeight = $("body").height();
+
+  window.danceFloor = new DanceFloor($('body'));
 
   $(".addDancer").on("click", function(event) {
     event.preventDefault();
@@ -16,34 +17,21 @@ $(document).ready(function() {
       Math.random() * 1000
     );
 
-    window.dancers.push($dancer);
-    
-    $('body').append($dancer.$node);
+    danceFloor.addDancer($dancer);
   });
 
   $('.lineUp').on('click', function(event){
-    event.preventDefault();
-    $remember = window.dancers;
-    var initialWidthPosition = 0;
-
-    var width = $bodyWidth / window.dancers.length;
-
-    for (var i = 0; i < window.dancers.length; i++) {
-      window.dancers[i].left = initialWidthPosition / $bodyWidth * 100 + '%';
-      window.dancers[i].top = '50%';
-      window.dancers[i].setPosition();
-      initialWidthPosition += width;
-    }
+    danceFloor.lineUp();
   });
 
   $('body').on('mouseenter', '.dancer', function(event){
-    var $top = $(this).position().top;
-    $(this).css('top', $top - 50);
+    var dancer = danceFloor.getDancerById($(this).data('guid'));
+    dancer.popUp();
   });
 
   $('body').on('mouseleave', '.dancer', function(event){
-    var $top = $(this).position().top;
-    $(this).css('top', $top + 50);
+    var dancer = danceFloor.getDancerById($(this).data('guid'));
+    dancer.pushDown();
   });
 
 });

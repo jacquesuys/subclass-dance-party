@@ -9,3 +9,4 @@ BlinkyDancer.prototype.step = function() {
   Dancer.prototype.step.call(this, arguments);
   this.$node.toggle();
 };
+

@@ -16,3 +16,4 @@ ElaineDancer.prototype.constructor = ElaineDancer;
 ElaineDancer.prototype.step = function() {
   // BlinkyDancer.prototype.step.call(this, arguments);
 };
+
