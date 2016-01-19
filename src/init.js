@@ -1,5 +1,5 @@
 $(document).ready(function() {
-
+  'use strict';
   window._danceGUID = window._danceGUID || 0;
   
   var $bodyWidth = $("body").width();
@@ -28,12 +28,12 @@ $(document).ready(function() {
 
   $('body').on('mouseenter', '.dancer', function(event){
     var dancer = danceFloor.getDancerById($(this).data('guid'));
-    dancer.popUp();
+    dancer.mouseEnter();
   });
 
   $('body').on('mouseleave', '.dancer', function(event){
     var dancer = danceFloor.getDancerById($(this).data('guid'));
-    dancer.pushDown();
+    dancer.mouseLeave();
   });
 
 });

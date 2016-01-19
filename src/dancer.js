@@ -1,3 +1,5 @@
+'use strict';
+
 var Dancer = class {
   constructor(top, left, timeBetweenSteps) {
 
@@ -36,10 +38,10 @@ var Dancer = class {
 
     return results;
   }
-  popUp() {
+  mouseEnter() {
     this.setPosition(this.top - 50, this.left);
   }
-  pushDown() {
+  mouseLeave() {
     this.setPosition(this.top + 50, this.left);
   }
   circleDance(x, y, radius) {
