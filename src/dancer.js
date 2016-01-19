@@ -6,6 +6,8 @@ var Dancer = function(top, left, timeBetweenSteps) {
   this.step();
   this.setPosition(top, left);
   this.color = this.randomRGB();
+
+  this.$node.css('backgroundColor', 'rgb('+ this.color[0] + ',' + this.color[1] + ',' + this.color[2] + ')'); 
 };
 
 Dancer.prototype.step = function() {
