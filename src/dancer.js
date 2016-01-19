@@ -5,6 +5,7 @@ var Dancer = function(top, left, timeBetweenSteps) {
   this.timeBetweenSteps = timeBetweenSteps;
   this.step();
   this.setPosition(top, left);
+  this.color = this.randomRGB();
 };
 
 Dancer.prototype.step = function() {
@@ -17,4 +18,13 @@ Dancer.prototype.setPosition = function(top, left) {
     left: this.left
   };
   this.$node.css(styleSettings);
+};
+
+Dancer.prototype.randomRGB = function () {
+  var results = [];
+  for(var i = 0; i<3; i++){
+    results.push(Math.floor(Math.random() * 255));
+  }
+
+  return results;
 };
