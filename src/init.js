@@ -26,6 +26,15 @@ $(document).ready(function() {
     danceFloor.lineUp();
   });
 
+  $('.circleDance').on('click', function(event){
+    danceFloor.circleDance();
+  });
+
+  $('.stop').on('click', function(event){
+    danceFloor.stopCustomDance();
+  });
+
+
   $('body').on('mouseenter', '.dancer', function(event){
     var dancer = danceFloor.getDancerById($(this).data('guid'));
     dancer.mouseEnter();
