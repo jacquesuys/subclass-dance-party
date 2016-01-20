@@ -1,22 +1,84 @@
+/* Animations */
+@keyframes colorchange {
+  0% {
+    background: red;
+  }
+  25% {
+    background: yellow;
+  }
+  50% {
+    background: blue;
+  }
+  75% {
+    background: green;
+  }
+  100% {
+    background: red;
+  }
+}
+
+@-webkit-keyframes colorchange {
+  0% {
+    background: red;
+  }
+  25% {
+    background: yellow;
+  }
+  50% {
+    background: blue;
+  }
+  75% {
+    background: green;
+  }
+  100% {
+    background: red;
+  }
+}
+
 body, html{
   height:100%;
 }
-body{
+body {
   margin: 0px;
   background-color:#444;
   font-size: 18px;
+  position: relative;
+}
+.backdrop,
+.backdrop-overlay {
+    position: absolute;
+    width: 100%;
+    height: 25%;
+    bottom: 0;
+}
+.backdrop {
+    z-index: 1;
+    animation: colorchange 5s infinite;
+    -webkit-animation: colorchange 5s infinite;
+}
+.backdrop-overlay {
+    z-index: 2;
+    background: -webkit-linear-gradient(top, rgba(68,68,68,0), rgba(68,68,68,1)); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(top, rgba(68,68,68,0), rgba(68,68,68,1)); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(top, rgba(68,68,68,0), rgba(68,68,68,1)); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(to top, rgba(68,68,68,0), rgba(68,68,68,1));
 }
 body, a:link, a:visited, a:active{
   color: lightblue;
 }
-.title, 
-.addDancer{
-  padding:5px 12px;
-  float:right;
-}
 .topbar{
   height:32px;
   background-color: #555;
+}
+.topbar > * {
+    padding:5px 12px;
+    float:right;
+}
+.topbar > *:hover {
+    text-decoration: none;
+}
+.lineUp {
+    float: left;
 }
 .title{
   background-color: #777;
@@ -28,5 +90,5 @@ body, a:link, a:visited, a:active{
   position:absolute;
   border-radius: 10px;
   transition: all 0.25s;
+  z-index: 3;
 }
-
