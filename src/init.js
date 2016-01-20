@@ -1,5 +1,5 @@
 $(document).ready(function() {
-
+  'use strict';
   window._danceGUID = window._danceGUID || 0;
   
   var $bodyWidth = $("body").width();
@@ -16,7 +16,7 @@ $(document).ready(function() {
     var $dancer = new $dancerMakerFunction(
       $("body").height() * Math.random(),
       $bodyWidth * Math.random(),
-      Math.random() * 1000
+      Math.random()*1000
     );
 
     danceFloor.addDancer($dancer);
@@ -26,14 +26,23 @@ $(document).ready(function() {
     danceFloor.lineUp();
   });
 
+  $('.circleDance').on('click', function(event){
+    danceFloor.circleDance();
+  });
+
+  $('.stop').on('click', function(event){
+    danceFloor.stopCustomDance();
+  });
+
+
   $('body').on('mouseenter', '.dancer', function(event){
     var dancer = danceFloor.getDancerById($(this).data('guid'));
-    dancer.popUp();
+    dancer.mouseEnter();
   });
 
   $('body').on('mouseleave', '.dancer', function(event){
     var dancer = danceFloor.getDancerById($(this).data('guid'));
-    dancer.pushDown();
+    dancer.mouseLeave();
   });
 
 });

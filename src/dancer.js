@@ -1,4 +1,6 @@
-var Dancer = class {
+'use strict';
+
+var Dancer = class Dancer {
   constructor(top, left, timeBetweenSteps) {
 
     this.$node = $('<span class="dancer"></span>');
@@ -36,14 +38,16 @@ var Dancer = class {
 
     return results;
   }
-  popUp() {
+  mouseEnter() {
     this.setPosition(this.top - 50, this.left);
   }
-  pushDown() {
+  mouseLeave() {
     this.setPosition(this.top + 50, this.left);
   }
-  circleDance(x, y, radius) {
-    var angle = 2 * Math.PI * Math.random();
+  circleDance(x, y, radius, optionalRadian) {
+    var angle = optionalRadian !==undefined ? 
+      optionalRadian : 2 * Math.PI * Math.random();
+
     var increment = 0.1;
     var self = this;
 
