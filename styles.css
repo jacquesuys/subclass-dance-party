@@ -98,3 +98,16 @@ body, a:link, a:visited, a:active{
   transition: all 0.25s;
   z-index: 3;
 }
+.spiderMan{
+  height: 200px;
+  background: transparent;
+}
+
+.flipImage {
+  -moz-transform: scaleX(-1);
+  -o-transform: scaleX(-1);
+  -webkit-transform: scaleX(-1);
+  transform: scaleX(-1);
+  filter: FlipH;
+  -ms-filter: "FlipH";
+}

@@ -1,3 +1,5 @@
+'use strict';
+
 var BlinkyDancer = class extends Dancer {
   constructor(top, left, timeBetweenSteps) {
     super(top, left, timeBetweenSteps);
