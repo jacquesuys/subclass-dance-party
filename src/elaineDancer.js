@@ -1,6 +1,6 @@
 'use strict';
 
-var ElaineDancer = class extends Dancer {
+var ElaineDancer = class ElaineDancer extends Dancer {
   constructor (top, left, timeBetweenSteps) {
     super(top, left, timeBetweenSteps);
 
