@@ -6,14 +6,14 @@ var DanceFloor = class {
   this.height = $dom.height();
   this.width = $dom.width();
   this.$dom = $dom;
-  } 
+  }
   addDancer (dancer) {
     this.dancers[dancer.guid] = dancer;
     this.$dom.append(dancer.$node);
   }
   lineUp () {
-    event.preventDefault();
-    
+    this.stopCustomDance();
+
     var initialWidthPosition = 0;
 
     var width = this.width / Object.keys(this.dancers).length;
@@ -24,6 +24,7 @@ var DanceFloor = class {
     }
   }
   circleDance () {
+    this.stopCustomDance();
     for (var key in this.dancers) {
       danceFloor.dancers[key].circleDance(this.width/2,this.height/2,this.width/4);
     }
@@ -31,7 +32,7 @@ var DanceFloor = class {
 
   hoeDown () {
     var alreadyPartnered = {};
-    
+    this.stopCustomDance();
     //In the first pass we try to partner w/ other dancer types
     checkDancer1: for (var key1 in this.dancers) {
       checkDancer2: for(var key2 in this.dancers){
@@ -63,7 +64,7 @@ var DanceFloor = class {
 
         alreadyPartnered[key1] = true;
         alreadyPartnered[key2] = true;
-        
+
       }
     }
   }
@@ -77,4 +78,3 @@ var DanceFloor = class {
     return this.dancers[id];
   }
 };
-

@@ -65,9 +65,13 @@ body {
     background: linear-gradient(to top, rgba(68,68,68,0), rgba(68,68,68,1));
 }
 .stage {
-    background-color: grey;
+    background: grey;
     height: 40%;
     z-index: 3;
+    background: -webkit-linear-gradient(bottom, rgba(68,68,68,1), rgba(128,128,128,1)); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(bottom, rgba(68,68,68,1), rgba(128,128,128,1)); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(bottom, rgba(68,68,68,1), rgba(128,128,128,1)); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(to bottom, rgba(68,68,68,1), rgba(128,128,128,1));
 }
 body, a:link, a:visited, a:active{
   color: lightblue;

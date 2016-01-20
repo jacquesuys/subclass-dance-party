@@ -1,7 +1,7 @@
 $(document).ready(function() {
   'use strict';
   window._danceGUID = window._danceGUID || 0;
-  
+
   var $bodyWidth = $("body").width();
   var $bodyHeight = $("body").height();
 
@@ -23,14 +23,17 @@ $(document).ready(function() {
   });
 
   $('.lineUp').on('click', function(event){
+    event.preventDefault();
     danceFloor.lineUp();
   });
 
   $('.circleDance').on('click', function(event){
+    event.preventDefault();
     danceFloor.circleDance();
   });
 
   $('.stop').on('click', function(event){
+    event.preventDefault();
     danceFloor.stopCustomDance();
   });
 
@@ -46,4 +49,3 @@ $(document).ready(function() {
   });
 
 });
-
